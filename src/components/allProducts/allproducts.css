@@ -1,0 +1,25 @@
+.my-card{
+    max-height: 100px;
+}
+
+.image-wraper{
+    height: 40%;
+    width: 50%;
+ 
+   margin: auto;
+  
+}
+
+.image-wraper img{
+    width: 100%;
+    object-fit: contain;
+    height: 180px;
+}
+
+.product-container{
+    border-radius: 20px;
+    box-shadow: -2px -1px  15px 0.5px #cccbcb;
+    min-height: 400px;
+   
+    margin-bottom: 20px;
+}

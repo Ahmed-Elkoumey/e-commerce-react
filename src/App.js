@@ -1,24 +1,35 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import About from './components/about';
+import Products from './components/allProducts';
+import NavBar from './components/navbar';
+import Details from './components/productDetails';
+import ShoppingCart from './components/shopping';
+
+
 
 function App() {
+
+  const [cartShopping, setCartShopping] = useState(0)
+
+ const  handelAddToCart=()=>{
+setCartShopping(prev=>  prev + 1)
+console.log('cartShopping')
+ }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+<BrowserRouter>
+ <NavBar number={cartShopping}/>
+
+<Routes>
+  <Route path='/' element={<Products event={handelAddToCart}/>}/>
+  <Route path='/about' element={<About/>}/>
+  <Route path='/details/:id' element={<Details/>}/>
+  <Route path='/mycart' element={<ShoppingCart/>}/>
+</Routes>
+
+</BrowserRouter>
   );
 }
 
