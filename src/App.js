@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import About from './components/about';
 import Products from './components/allProducts';
+import Cart from './components/myCart';
 import NavBar from './components/navbar';
 import Details from './components/productDetails';
 import ShoppingCart from './components/shopping';
@@ -27,6 +28,7 @@ console.log('cartShopping')
   <Route path='/about' element={<About/>}/>
   <Route path='/details/:id' element={<Details/>}/>
   <Route path='/mycart' element={<ShoppingCart/>}/>
+  <Route path='/cart' element={<Cart/>}/>
 </Routes>
 
 </BrowserRouter>
