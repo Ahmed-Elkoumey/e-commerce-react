@@ -6,6 +6,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import {useDispatch} from 'react-redux';
 import {pushToCart} from "../../store/shoppingSlice"
+import Loader from "../loader";
 
 
 function Products(props) {
@@ -30,7 +31,9 @@ function Products(props) {
       .then((json) => setProducts(json));
   };
 
-
+if(products.length == 0) {
+return <Loader/>
+}
 
   
 

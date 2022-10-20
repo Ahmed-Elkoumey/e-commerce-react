@@ -11,13 +11,14 @@ import {useSelector} from "react-redux"
 
 function NavBar() {
 
-const globalStore = useSelector((store)=>store.cart.cuonter)
+const globalStore = useSelector((store)=>store.cart.productList)
 
 
 
 
   return (
     <Navbar
+    sticky="top"
       collapseOnSelect
       expand="lg"
       bg="dark"
@@ -42,15 +43,18 @@ const globalStore = useSelector((store)=>store.cart.cuonter)
               </Link>
 
               <span className="text-danger fs-3 position-absolute number-cuont">
-                {globalStore}
+                {globalStore.length}
               </span>
             </div>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">LogIn</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
+          <Link className="nav-link text-info fs-3 me-md-3" to='/login'>
+            Login
+          </Link>
+
+            <Link className="nav-link text-info fs-3 me-md-3" to='/register'>
               ReGister
-            </Nav.Link>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
