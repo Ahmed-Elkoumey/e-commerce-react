@@ -33,10 +33,6 @@ const globalStore = useSelector((store)=>store.cart.productList)
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/about" className="nav-link text-info fs-3 mx-md-5">
-              About
-            </Link>
-
             <div className="position-relative">
               <Link to="/cart" className="nav-link text-info fs-3 me-md-3">
                 <AiOutlineShoppingCart className="text-warning fs-1" />

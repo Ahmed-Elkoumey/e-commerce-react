@@ -13,15 +13,27 @@ const shoppingSlice = createSlice({
 
   reducers: {
     pushToCart: (state, action) => {
+
       const dupplicated=state.productList.find((prod)=> prod.id===action.payload.id); 
-      console.log("dupplicated",dupplicated);
+
+   
+
       if (dupplicated) {
+
         dupplicated.quantity+=1;
+
       }else{
         const clone ={...action.payload,quantity:1}
         state.productList.push(clone);
       }
     },
+
+    decreaseItem :(state, action)=>{
+      const itemDub=state.productList.find((prod)=> prod.id===action.payload.id); 
+        itemDub.quantity -= 1 ;
+  
+    }
+    ,
     removeFromCart: (state, action) => {
      state.productList.splice(action.payload,1)
       
@@ -33,6 +45,6 @@ const shoppingSlice = createSlice({
 });
 
 // Actions
-export const { pushToCart, removeFromCart, clearAll } = shoppingSlice.actions;
+export const { pushToCart, removeFromCart, clearAll,decreaseItem } = shoppingSlice.actions;
 
 export default shoppingSlice.reducer;

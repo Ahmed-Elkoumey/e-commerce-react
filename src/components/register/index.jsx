@@ -2,11 +2,15 @@ import { Button, Form } from "react-bootstrap";
 import Signup from "../../assets/images/undraw_fill_form_re_cwyf.png";
 import Select from 'react-select'
 
+import { useNavigate } from "react-router-dom";
 // form Hook
 import { useForm ,controller} from "react-hook-form";
 import { useState } from "react";
 
 function Rgister() {
+
+
+  const navigate = useNavigate();
 
   const options = [
     { value: 'Alex', label: 'Alex' },
@@ -29,7 +33,9 @@ function Rgister() {
     formState: { errors },
   } = useForm({mode:"onTouched"});
 
+
   const onSubmit = (e) => {
+    navigate('/login')
     e.preventDefault();
 
     console.log(e);
